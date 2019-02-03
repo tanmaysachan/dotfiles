@@ -19,6 +19,8 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'ajh17/VimCompletesMe'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'ayu-theme/ayu-vim'
+Plugin 'Yggdroot/indentLine'
 " plugin from http://vim-scripts.org/vim/scripts.html
 " Plugin 'L9'
 " Git plugin not hosted on GitHub
@@ -215,7 +217,40 @@ if has("cscope")
 
 endif
 
+""" airline stuff
 
+" air-line
+" let g:airline_powerline_fonts = 1
+"
+" if !exists('g:airline_symbols')
+"     let g:airline_symbols = {}
+"     endif
+"
+"     " unicode symbols
+"     let g:airline_left_sep = '»'
+"     let g:airline_left_sep = '▶'
+"     let g:airline_right_sep = '«'
+"     let g:airline_right_sep = '◀'
+"     let g:airline_symbols.linenr = '␊'
+"     let g:airline_symbols.linenr = '␤'
+"     let g:airline_symbols.linenr = '¶'
+"     let g:airline_symbols.branch = '⎇'
+"     let g:airline_symbols.paste = 'ρ'
+"     let g:airline_symbols.paste = 'Þ'
+"     let g:airline_symbols.paste = '∥'
+"     let g:airline_symbols.whitespace = 'Ξ'
+"
+"" airline symbols
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+"let g:airline_symbols.branch = ''
+"let g:airline_symbols.readonly = ''
+"let g:airline_symbols.linenr = ''"
+"     "
+
+""" airline stuff end
 
 set number	
 set linebreak	
@@ -229,7 +264,6 @@ set hlsearch
 set smartcase	
 set ignorecase	
 set incsearch	
- 
 set autoindent	
 set shiftwidth=8 
 set smartindent	
@@ -241,10 +275,18 @@ set ruler
 set number relativenumber
 set nu rnu
 map <C-n> :NERDTreeToggle<CR>
-nnoremap <C-j> :tabprevious<CR>
-nnoremap <C-k> :tabnext<CR>
+nnoremap <C-j> :bp!<CR>
+nnoremap <C-k> :bn!<CR>
 set mouse=a
 autocmd BufWinEnter * NERDTreeMirror
 nmap <C-m> :NERDTreeFind<CR>
-colo solarized
+colo solarized8_dark
 let g:airline#extensions#tabline#enabled = 1
+set t_Co=256
+let g:airline_theme='badwolf'
+set scrolloff=9 
+set virtualedit=onemore
+augroup nerdtree_clear
+    autocmd!
+    autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | bd | endif
+augroup end
