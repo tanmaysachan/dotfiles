@@ -1,5 +1,5 @@
 set nocompatible
-filetype off    
+filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -30,22 +30,22 @@ let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ''
 let g:airline_right_alt_sep = ''
 set number
-set linebreak	
+set linebreak
 set showbreak=+++
 set textwidth=100
-set showmatch	
+set showmatch
 set virtualedit=all
 set t_vb=
-syntax on 
-set hlsearch	
+syntax on
+set hlsearch
 set mouse=a
-set smartcase	
+set smartcase
 set ignorecase
-set incsearch	
-set autoindent	
-set smartindent	
+set incsearch
+set autoindent
+set smartindent
 " set shiftwidth=8
-" set smarttab	
+" set smarttab
 " set softtabstop=8
 " set tabstop=8
 " set noexpandtab
@@ -90,5 +90,5 @@ autocmd BufEnter NERD_* setlocal rnu
 inoremap { {}<left>
 inoremap {<CR> {<CR>}<ESC>O
 inoremap {;<CR> {<CR>};<ESC>O
-" highlight ExtraWhitespace ctermbg=red guibg=red
-" match ExtraWhitespace /\s\+$/
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
