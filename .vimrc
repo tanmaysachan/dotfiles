@@ -18,13 +18,12 @@ Plugin 'machakann/vim-highlightedyank'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-endwise'
 Plugin 'flazz/vim-colorschemes'
-Plugin 'kaicataldo/material.vim'
-Plugin 'morhetz/gruvbox'
+" Plugin 'jiangmiao/auto-pairs'
 call vundle#end()
 filetype plugin indent on
 
 " airline symbols
-set guifont="DroidSans\ Mono\ Nerd"
+" set guifont="DroidSans\ Mono\ Nerd"
 let g:airline_left_sep = ''
 let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ''
@@ -59,11 +58,7 @@ nnoremap <C-j> :bp!<CR>
 nnoremap <C-k> :bn!<CR>
 autocmd BufWinEnter * NERDTreeMirror
 nmap <C-m> :NERDTreeFind<CR>
-" let g:solarized_termcolors=16
-" let g:gruvbox_sign_column='dark0_hard'
-" let g:gruvbox_contrast_dark='hard'
-" let g:gruvbox_italic=0
-" let g:gruvbox_invert_selection=0
+let g:solarized_termcolors=16
 colo solarized8_dark
 syntax on
 let g:airline#extensions#tabline#enabled = 1
@@ -87,8 +82,3 @@ autocmd InsertEnter * set cul
 autocmd InsertLeave * set nocul
 let g:NERDTreeShowLineNumbers=1
 autocmd BufEnter NERD_* setlocal rnu
-inoremap { {}<left>
-inoremap {<CR> {<CR>}<ESC>O
-inoremap {;<CR> {<CR>};<ESC>O
-highlight ExtraWhitespace ctermbg=red guibg=red
-match ExtraWhitespace /\s\+$/
