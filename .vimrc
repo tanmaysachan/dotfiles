@@ -1,6 +1,32 @@
+" Tanmay's (n)vimrc
+" nvim v0.4.3
+
+
+" general
+syntax on
+set linebreak
+set showbreak=+++
+set textwidth=100
+set showmatch
+set virtualedit=all
+set clipboard=unnamedplus " WSL clipboard breaks without this
+set t_vb=
+set hlsearch
+set mouse=a " enable mouse support
+set smartcase
+set ignorecase
+set incsearch
+set noswapfile
+set scrolloff=9
+set virtualedit=onemore " scroll by one more to the right
+set guicursor=i:ver25-iCursor " fixes cursor on GVIM
+set ruler
+
 set nocompatible
 filetype off
 
+
+" VIM-Plug plugins
 set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath = &runtimepath
 
@@ -25,55 +51,46 @@ Plug 'jiangmiao/auto-pairs'
 call plug#end()
 filetype plugin indent on
 
-" airline symbols
-" set guifont="DroidSans\ Mono\ Nerd"
+
+" airline config
 let g:airline_left_sep = ''
 let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ''
 let g:airline_right_alt_sep = ''
-set number
-set linebreak
-set showbreak=+++
-set textwidth=100
-set showmatch
-set virtualedit=all
-set clipboard=unnamedplus
-set t_vb=
-syntax on
-set hlsearch
-set mouse=a
-set smartcase
-set ignorecase
-set incsearch
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='base16_gruvbox_dark_hard'
+
+
+" tabstop and indent
 set autoindent
 set smartindent
-" set shiftwidth=8
-" set smarttab
-" set softtabstop=8
-" set tabstop=8
-" set noexpandtab
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
-set ruler
-set guicursor=i:ver25-iCursor
+
+
+" hybrid numbering
+" declared twice idk i remember it breaking something
 set number relativenumber
 set nu rnu
+
+
+" nerd tree
 map <C-n> :NERDTreeToggle<CR>
 nnoremap <C-j> :bp!<CR>
 nnoremap <C-k> :bn!<CR>
 autocmd BufWinEnter * NERDTreeMirror
 nmap <C-m> :NERDTreeFind<CR>
-" let g:solarized_termcolors=16
-syntax on
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='base16_gruvbox_dark_hard'
-set scrolloff=9
-set virtualedit=onemore
+autocmd InsertEnter * set cul
+autocmd InsertLeave * set nocul
+let g:NERDTreeShowLineNumbers=1
+autocmd BufEnter NERD_* setlocal rnu
+
 augroup nerdtree_clear
 	autocmd!
 	autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | bd | endif
 augroup end
-let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
-set noswapfile
+
+
+" TMUX errors fix
 if exists('$TMUX')
   let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
   let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
@@ -81,15 +98,23 @@ else
   let &t_SI = "\<Esc>]50;CursorShape=1\x7"
   let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
-autocmd InsertEnter * set cul
-autocmd InsertLeave * set nocul
-let g:NERDTreeShowLineNumbers=1
-autocmd BufEnter NERD_* setlocal rnu
 colo gruvbox
-" set lazyredraw
-" set regexpengine=1
+
+
+" coc settings huehuehue
+
+" coc-go
 let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
+
+set cmdheight=2
+set updatetime=500
+set signcolumn=yes
+
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
