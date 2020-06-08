@@ -1,25 +1,28 @@
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-surround'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'Yggdroot/indentLine'
-Plugin 'rdnetto/YCM-Generator'
-Plugin 'romainl/vim-cool'
-Plugin 'tpope/vim-commentary'
-Plugin 'machakann/vim-highlightedyank'
-Plugin 'scrooloose/nerdtree'
-Plugin 'tpope/vim-endwise'
-Plugin 'flazz/vim-colorschemes'
-" Plugin 'jiangmiao/auto-pairs'
-call vundle#end()
+set runtimepath^=~/.vim runtimepath+=~/.vim/after
+let &packpath = &runtimepath
+
+call plug#begin('~/.vim/plugged')
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'VundleVim/Vundle.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'altercation/vim-colors-solarized'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'Yggdroot/indentLine'
+Plug 'romainl/vim-cool'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'tpope/vim-commentary'
+Plug 'machakann/vim-highlightedyank'
+Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-endwise'
+Plug 'flazz/vim-colorschemes'
+Plug 'jiangmiao/auto-pairs'
+call plug#end()
 filetype plugin indent on
 
 " airline symbols
@@ -34,6 +37,7 @@ set showbreak=+++
 set textwidth=100
 set showmatch
 set virtualedit=all
+set clipboard=unnamedplus
 set t_vb=
 syntax on
 set hlsearch
@@ -58,11 +62,10 @@ nnoremap <C-j> :bp!<CR>
 nnoremap <C-k> :bn!<CR>
 autocmd BufWinEnter * NERDTreeMirror
 nmap <C-m> :NERDTreeFind<CR>
-let g:solarized_termcolors=16
-colo solarized8_dark
+" let g:solarized_termcolors=16
 syntax on
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='badwolf'
+let g:airline_theme='base16_gruvbox_dark_hard'
 set scrolloff=9
 set virtualedit=onemore
 augroup nerdtree_clear
@@ -82,3 +85,19 @@ autocmd InsertEnter * set cul
 autocmd InsertLeave * set nocul
 let g:NERDTreeShowLineNumbers=1
 autocmd BufEnter NERD_* setlocal rnu
+colo gruvbox
+" set lazyredraw
+" set regexpengine=1
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
+
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
