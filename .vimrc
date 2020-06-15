@@ -21,6 +21,7 @@ set scrolloff=9
 set virtualedit=onemore " scroll by one more to the right
 set guicursor=i:ver25-iCursor " fixes cursor on GVIM
 set ruler
+set nu rnu
 
 set nocompatible
 filetype off
@@ -65,13 +66,6 @@ let g:airline_theme='base16_gruvbox_dark_hard'
 set autoindent
 set smartindent
 set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
-
-
-" hybrid numbering
-" declared twice idk i remember it breaking something
-set number relativenumber
-set nu rnu
-
 
 " nerd tree
 noremap <C-n> :NERDTreeToggle<CR>
