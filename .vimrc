@@ -74,11 +74,11 @@ set nu rnu
 
 
 " nerd tree
-map <C-n> :NERDTreeToggle<CR>
+noremap <C-n> :NERDTreeToggle<CR>
 nnoremap <C-j> :bp!<CR>
 nnoremap <C-k> :bn!<CR>
 autocmd BufWinEnter * NERDTreeMirror
-nmap <C-m> :NERDTreeFind<CR>
+nnoremap <C-m> :NERDTreeFind<CR>
 autocmd InsertEnter * set cul
 autocmd InsertLeave * set nocul
 let g:NERDTreeShowLineNumbers=1
@@ -111,10 +111,10 @@ set cmdheight=2
 set updatetime=500
 set signcolumn=yes
 
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+nnoremap <silent> gd <Plug>(coc-definition)
+nnoremap <silent> gy <Plug>(coc-type-definition)
+nnoremap <silent> gi <Plug>(coc-implementation)
+nnoremap <silent> gr <Plug>(coc-references)
 
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
