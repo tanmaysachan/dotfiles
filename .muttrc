@@ -1,0 +1,22 @@
+set realname = "Tanmay Sachan"
+set from="Tanmay Sachan <tnmysachan@gmail.com>"
+set use_from = yes
+set envelope_from = yes
+set edit_headers=yes
+set sendmail="/usr/bin/esmtp"
+
+set smtp_url = "smtps://tnmysachan@gmail.com@smtp.gmail.com:465/"
+set smtp_pass = "<nope>"
+set imap_user = "tnmysachan@gmail.com"
+set imap_pass = "<nope>"
+set folder = "imaps://imap.gmail.com:993"
+set spoolfile = "+INBOX"
+set ssl_force_tls = yes
+
+bind index G imap-fetch-mail
+set editor = "vim"
+set charset = "utf-8"
+set record = ''
+
+set header_cache="~/.mutt/cache/headers"
+set message_cachedir="~/.mutt/cache/bodies"
