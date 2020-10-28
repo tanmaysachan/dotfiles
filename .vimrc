@@ -48,10 +48,13 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-endwise'
 Plug 'flazz/vim-colorschemes'
+Plug 'JamshedVesuna/vim-markdown-preview'
 Plug 'jiangmiao/auto-pairs'
 call plug#end()
 filetype plugin indent on
 
+" markdown renderer
+let vim_markdown_preview_use_xdg_open=1
 
 " airline config
 let g:airline_left_sep = ''
@@ -120,3 +123,4 @@ function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
+
