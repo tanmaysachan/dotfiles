@@ -1,0 +1,138 @@
+# Configuration for Alacritty, the GPU enhanced terminal emulator
+
+# Any items in the `env` entry below will be added as
+# environment variables. Some entries may override variables
+# set by alacritty it self.
+window:
+  # Window dimensions (changes require restart)
+  #
+  # Specified in number of columns/lines, not pixels. If both are zero this
+  # setting is ignored.
+  dimensions:
+    columns: 100
+    lines: 85
+
+  # Window padding (changes require restart)
+  #
+  # Blank space added around the window in pixels. This padding is not scaled by
+  # DPI and the specified value is always added at both opposing sides.
+  padding:
+    x: 0
+    y: 0
+
+  # Spread additional padding evenly around the terminal content.
+  dynamic_padding: false
+
+  # Window decorations
+  #
+  # Available values:
+  # - full: borders and title bar
+  # - none: neither borders nor title bar
+  # - transparent: title bar, transparent background and title bar buttons
+  # - buttonless: title bar, transparent background, but no title bar buttons
+  decorations: full
+
+  # Startup Mode (changes require restart)
+  #
+  # Values for `startup_mode`:
+  #   - Windowed
+  #   - Maximized
+  #   - Fullscreen
+  #
+  # Values for `startup_mode` (macOS only):
+  #   - SimpleFullscreen
+  startup_mode: Windowed
+
+scrolling:
+  # maximum number of lines in the scrollback buffer. Specifying '0' will
+  # disable scrolling.
+  history: 0
+
+  # Number of lines the viewport will move for every line scrolled when
+  # scrollback is enabled (history > 0).
+  multiplier: 3
+
+# Font configuration (changes require restart)
+font:
+  size: 12
+
+  # Offset is the extra space around each character. offset.y can be thought of
+  # as modifying the linespacing, and offset.x as modifying the letter spacing.
+  offset:
+    x: 0
+    y: 0
+
+  # Glyph offset determines the locations of the glyphs within their cells with
+  # the default being at the bottom. Increase the x offset to move the glyph to
+  # the right, increase the y offset to move the glyph upward.
+  glyph_offset:
+    x: 0
+    y: 0
+
+  # Thin stroke font rendering (macOS only)
+  #
+  # Thin strokes are suitable for retina displays, but for non-retina you
+  # probably want this set to false.
+  #
+  # macOS >= 10.14.x:
+  #
+  # If the font quality on non-retina display looks bad then set
+  # `use_thin_strokes` to `true` and enable font smoothing by running the
+  # following command:
+  #   `defaults write -g CGFontRenderingFontSmoothingDisabled -bool NO`
+  #
+  # This is a global setting and will require a log out or restart to take
+  # effect.
+  use_thin_strokes: true
+
+# When true, bold text is drawn using the bright variant of colors.
+draw_bold_text_with_bright_colors: false
+
+# Use custom cursor colors. If true, display the cursor in the cursor.foreground
+# and cursor.background colors, otherwise invert the colors of the cursor.
+# custom_cursor_colors: false
+
+# Colors
+colors:
+  # COLORSCHEME: base16-gruvbox-dark-soft.yml
+  # Default colors
+  primary:
+    # hard contrast: background = '#1d2021'
+    background: '0x32302f'
+    foreground: '0xd5c4a1'
+
+  # Colors the cursor will use if `custom_cursor_colors` is true
+  normal:
+    black: '0x32302f'
+    red: '0xfb4934'
+    green: '0xb8bb26'
+    yellow: '0xfabd2f'
+    blue: '0x83a598'
+    magenta: '0xd3869b'
+    cyan: '0x8ec07c'
+    white: '0xd5c4a1'
+
+  # Bright colors
+  bright:
+    black: '0x665c54'
+    red: '0xfe8019'
+    green: '0x3c3836'
+    yellow: '0x504945'
+    blue: '0xbdae93'
+    magenta: '0xebdbb2'
+    cyan: '0xd65d0e'
+    white: '0xfbf1c7'
+
+  indexed_colors:
+    - {index: 16, color: '0xd65407'}
+    - {index: 17, color: '0xc720ca'}
+    - {index: 18, color: '0x4a464d'}
+    - {index: 19, color: '0x666369'}
+    - {index: 20, color: '0x9f9da2'}
+    - {index: 21, color: '0xd8d7da'}
+  cursor:
+    text: '0x32302f'
+    cursor: '0xd5c4a1'
+
+  # Normal colors
+background_opacity: 1.0
